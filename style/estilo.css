@@ -13,3 +13,35 @@
 header{
     text-align: center;
 }
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid blue;
+    width: 300px;
+    margin: 30px 10px;
+}
+
+.card h2{
+    text-align: center;
+    margin: 10px;
+}
+
+.card p{
+    margin: 10px;
+    padding-top: 10px;
+}
+
+.card button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.cardBoton{
+    text-align: center;
+}
