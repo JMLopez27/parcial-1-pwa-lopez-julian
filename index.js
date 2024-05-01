@@ -2,9 +2,17 @@ const URL_endpoint = 'https://pokeapi.co/api/v2/';
 const URL_pokemones = URL_endpoint + 'pokemon?limit=100&offset=0';
 
 fetch(URL_pokemones)
-    .then(data => data.json())
-    .then(resultado => {
-        console.log(resultado.results[0].url);
+    .then(response => response.json())
+    .then(pokemonData => {
+        pokemonData.results.forEach(pokemon => {
+            const pokemonURL = pokemon.url;
+
+            fetch(pokemonURL)
+                .then(response => response.json())
+                .then(pokemonDatos =>{
+                    crearCard(pokemonDatos);
+                })
+        });
     })
 
 /* function crearCard(pokemon){
