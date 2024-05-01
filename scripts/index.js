@@ -26,7 +26,7 @@ function crearCard(pokemonDatos){
     card.appendChild(divH2);
 
     const h2 = document.createElement('h2');
-    h2.innerText = pokemonDatos.name;
+    h2.innerText = pokemonDatos.name.charAt(0).toUpperCase() + pokemonDatos.name.slice(1);
     divH2.appendChild(h2);
 
     const img = document.createElement('img');
@@ -34,7 +34,7 @@ function crearCard(pokemonDatos){
     divH2.appendChild(img);
 
     const p = document.createElement('p');
-    p.innerText = pokemonDatos.types.map(tipos => tipos.type.name);
+    p.innerText = pokemonDatos.types.map(tipos => tipos.type.name.toUpperCase());
     divH2.appendChild(p);
 
     const divBoton = document.createElement('div');
@@ -43,7 +43,14 @@ function crearCard(pokemonDatos){
 
     const boton = document.createElement('button');
     boton.innerText = 'Detalle';
+    boton.addEventListener('click', () =>{
+        mostrarDetalle(pokemonDatos.id);
+    })
     divBoton.appendChild(boton);
 
     contenedor.appendChild(card);
+}
+
+const mostrarDetalle = (id) => {
+    window.location.href = "http://127.0.0.1:5500/detalle.html?id=" + id;
 }
