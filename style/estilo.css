@@ -26,9 +26,18 @@ main{
     margin: 30px 10px;
 }
 
+.divCentrado{
+    text-align: center;
+}
+
 .card h2{
     text-align: center;
     margin: 10px;
+}
+
+.card img{
+    width: 200px;
+    height: 200px;
 }
 
 .card p{
