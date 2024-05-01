@@ -30,7 +30,8 @@ function crearCard(pokemonDatos){
     divH2.appendChild(h2);
 
     const img = document.createElement('img');
-    img.setAttribute('src', pokemonDatos.sprites.other.dream_world.front_default);
+    img.src = pokemonDatos.sprites.other.dream_world.front_default;
+    img.alt = pokemonDatos.name;
     divH2.appendChild(img);
 
     const p = document.createElement('p');
@@ -51,6 +52,6 @@ function crearCard(pokemonDatos){
     contenedor.appendChild(card);
 }
 
-const mostrarDetalle = (id) => {
-    window.location.href = "http://127.0.0.1:5500/detalle.html?id=" + id;
+function mostrarDetalle(pokemonId){
+    window.location.href = `http://127.0.0.1:5500/detalle.html?id=${pokemonId}`;
 }
