@@ -5,11 +5,11 @@ const URL_pokemon = URL_endpoint + 'pokemon/' + pokemonID;
 
 fetch(URL_pokemon)
     .then(data => data.json())
-    .then(resultado =>{
+    .then(resultado => {
         crearCarta(resultado)
     })
 
-function crearCarta(pokemonDatos){
+function crearCarta(pokemonDatos) {
     const contenedor = document.getElementById('contenedorPrincipal');
 
     const header = document.createElement('heaeder');
@@ -39,11 +39,11 @@ function crearCarta(pokemonDatos){
     imagen.atl = pokemonDatos.name;
     divCarta.appendChild(imagen);
 
-    const divHabilidades = document.createElement('div');
-    divHabilidades.classList.add('habilidades');
-    divCarta.appendChild(divHabilidades);
+    const contenedorHabilidades = document.createElement('div');
+    contenedorHabilidades.classList.add('habilidades');
+    divCarta.appendChild(contenedorHabilidades);
 
-    const divHabilidad1 = document.createElement('div');
+    /* const divHabilidad1 = document.createElement('div');
     divHabilidades.appendChild(divHabilidad1);
 
     const pHabilidad1 = document.createElement('p');
@@ -62,5 +62,17 @@ function crearCarta(pokemonDatos){
 
     const pHabilidad3 = document.createElement('p');
     pHabilidad3.innerText = "habilidad 3"
-    divHabilidad3.appendChild(pHabilidad3);
+    divHabilidad3.appendChild(pHabilidad3) */
+
+    const habilidades = pokemonDatos.abilities.slice(0, 3);
+
+    habilidades.forEach((ability, index) => {
+        const divHabilidades = document.createElement("div");
+
+        const pHabilidades = document.createElement("p");
+
+        pHabilidades.innerText = `Habilidad ${index + 1}: ${ability.ability.name}`;
+        divHabilidades.appendChild(pHabilidades);
+        contenedorHabilidades.appendChild(divHabilidades);
+    });
 }
