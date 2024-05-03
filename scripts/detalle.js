@@ -6,10 +6,10 @@ const URL_pokemon = URL_endpoint + 'pokemon/' + pokemonID;
 fetch(URL_pokemon)
     .then(data => data.json())
     .then(resultado => {
-        crearCarta(resultado)
+        crearCartaDetalle(resultado)
     })
 
-function crearCarta(pokemonDatos) {
+function crearCartaDetalle(pokemonDatos) {
     const contenedor = document.getElementById('contenedorPrincipal');
 
     const header = document.createElement('heaeder');
@@ -43,27 +43,6 @@ function crearCarta(pokemonDatos) {
     contenedorHabilidades.classList.add('habilidades');
     divCarta.appendChild(contenedorHabilidades);
 
-    /* const divHabilidad1 = document.createElement('div');
-    divHabilidades.appendChild(divHabilidad1);
-
-    const pHabilidad1 = document.createElement('p');
-    pHabilidad1.innerText = "habilidad 1"
-    divHabilidad1.appendChild(pHabilidad1);
-
-    const divHabilidad2 = document.createElement('div');
-    divHabilidades.appendChild(divHabilidad2);
-
-    const pHabilidad2 = document.createElement('p');
-    pHabilidad2.innerText = "habilidad 2"
-    divHabilidad2.appendChild(pHabilidad2);
-
-    const divHabilidad3 = document.createElement('div');
-    divHabilidades.appendChild(divHabilidad3);
-
-    const pHabilidad3 = document.createElement('p');
-    pHabilidad3.innerText = "habilidad 3"
-    divHabilidad3.appendChild(pHabilidad3) */
-
     const habilidades = pokemonDatos.abilities.slice(0, 3);
 
     habilidades.forEach((ability, index) => {
@@ -75,4 +54,36 @@ function crearCarta(pokemonDatos) {
         divHabilidades.appendChild(pHabilidades);
         contenedorHabilidades.appendChild(divHabilidades);
     });
+
+    const divDetalle = document.createElement('div');
+    divDetalle.classList.add('detalle');
+    main.appendChild(divDetalle);
+    
+    const h3Datos = document.createElement('h3');
+    h3Datos.innerText = `Estadisticas ${pokemonDatos.name.charAt(0).toUpperCase() + pokemonDatos.name.slice(1)}`;
+    divDetalle.appendChild(h3Datos);
+
+    const divEstadisticas = document.createElement('div');
+    divEstadisticas.classList.add('estadisticas');
+    divDetalle.appendChild(divEstadisticas);
+
+    const divPesoAltura = document.createElement('div');
+    divEstadisticas.appendChild(divPesoAltura);
+
+    const peso = document.createElement('p');
+    peso.innerText = `Peso: ${pokemonDatos.weight}`;
+    divPesoAltura.appendChild(peso);
+
+    const altura = document.createElement('p');
+    altura.innerText = `Altura: ${pokemonDatos.height}`;
+    divPesoAltura.appendChild(altura);
+
+    const divStatsBase = document.createElement('div');
+    divEstadisticas.appendChild(divStatsBase);
+
+    pokemonDatos.stats.forEach(stat => {
+        const pStats = document.createElement('p');
+        pStats.innerText = `${stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1)}: ${stat.base_stat}`;
+        divStatsBase.appendChild(pStats);
+    })
 }
