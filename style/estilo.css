@@ -55,6 +55,12 @@ header{
     text-align: center;
 }
 
+.tituloDetalle{
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+}
+
 #cajaDetalle{
     display: flex;
     justify-content: center;
@@ -62,23 +68,81 @@ header{
 
 .carta{
     width: 300px;
-    height: 400px;
+    height: 425px;
     margin: 10px 25px;
     border-radius: 10px;
     border: 10px solid transparent;
     border-image: radial-gradient(rgb(0, 0, 0), rgb(90, 90, 90)) 1; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(to bottom right, red, orange);
+    background: linear-gradient(to bottom right, rgb(255, 60, 0), rgba(151,167,241,255));
+}
+
+.tituloCarta{
+    display: flex;
+    justify-content: space-between;
+}
+
+.carta h2{
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.tituloCarta p{
+    font-size: 0.7rem;
+    padding: 5px;
 }
 
 .carta img{
     width: 300px;
+    height: 300px;
+}
+
+.habilidades{
+    padding: 5px;
+}
+
+.habilidades div{
+    margin: 8px 5px;
 }
 
 .detalle{
-    border: 1px solid blue;
     margin: 10px 25px;
     width: 600px;
-    height: 400px;
+    height: 445px;
     border-radius: 5px;
+    background: linear-gradient(to bottom right, rgb(255, 60, 0), rgba(151,167,241,255));
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.detalle h3{
+    padding: 5px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.estadisticas{
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.pesoAltura{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+    padding-bottom: 20px;
+}
+
+.statsBase{
+    display: flex;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    flex-direction: column;
+}
+
+.statsBase p{
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
 }

@@ -13,6 +13,7 @@ function crearCartaDetalle(pokemonDatos) {
     const contenedor = document.getElementById('contenedorPrincipal');
 
     const header = document.createElement('heaeder');
+    header.classList.add('tituloDetalle')
     contenedor.appendChild(header);
 
     const h1 = document.createElement('h1');
@@ -28,11 +29,16 @@ function crearCartaDetalle(pokemonDatos) {
     main.appendChild(divCarta);
 
     const divH2 = document.createElement('div')
+    divH2.classList.add('tituloCarta');
     divCarta.appendChild(divH2);
 
     const h2 = document.createElement('h2');
     h2.innerText = pokemonDatos.name.charAt(0).toUpperCase() + pokemonDatos.name.slice(1);
     divH2.appendChild(h2);
+
+    const pTipos = document.createElement('p');
+    pTipos.innerText = pokemonDatos.types.map(tipos => tipos.type.name.toUpperCase().replace("", " "));
+    divH2.appendChild(pTipos);
 
     const imagen = document.createElement('img');
     imagen.src = pokemonDatos.sprites.other.dream_world.front_default;
@@ -50,7 +56,7 @@ function crearCartaDetalle(pokemonDatos) {
 
         const pHabilidades = document.createElement("p");
 
-        pHabilidades.innerText = `Habilidad ${index + 1}: ${ability.ability.name}`;
+        pHabilidades.innerText = `Habilidad ${index + 1}: ${ability.ability.name.toUpperCase()}`;
         divHabilidades.appendChild(pHabilidades);
         contenedorHabilidades.appendChild(divHabilidades);
     });
@@ -68,6 +74,7 @@ function crearCartaDetalle(pokemonDatos) {
     divDetalle.appendChild(divEstadisticas);
 
     const divPesoAltura = document.createElement('div');
+    divPesoAltura.classList.add('pesoAltura')
     divEstadisticas.appendChild(divPesoAltura);
 
     const peso = document.createElement('p');
@@ -79,6 +86,7 @@ function crearCartaDetalle(pokemonDatos) {
     divPesoAltura.appendChild(altura);
 
     const divStatsBase = document.createElement('div');
+    divStatsBase.classList.add('statsBase')
     divEstadisticas.appendChild(divStatsBase);
 
     pokemonDatos.stats.forEach(stat => {
