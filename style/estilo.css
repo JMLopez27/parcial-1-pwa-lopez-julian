@@ -14,6 +14,11 @@ header{
     text-align: center;
 }
 
+.tituloInicio{
+    padding: 20px;
+    font-size: 2rem;
+}
+
 #contenidoPrincipal{
     display: flex;
     flex-wrap: wrap;
