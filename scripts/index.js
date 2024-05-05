@@ -55,6 +55,7 @@ function crearCard(pokemonData) {
 function mostrarDetalle(pokemonId) {
     window.location.href = `http://127.0.0.1:5500/detalle.html?id=${pokemonId}`;
 }
+
 const buscador = document.getElementById("buscador")
 buscador.addEventListener("input", buscarPokemon);
 
@@ -72,3 +73,17 @@ function buscarPokemon() {
         crearCard(pokemon);
     });
 }
+
+/* function mostrarPokemonVisto(){
+    const pokemonesVistos = JSON.parse(localStorage.getItem('pokemonesVistos')) || [];
+
+    const ulPokemonsVistos = document.getElementById('pokemonVisto');
+
+    ulPokemonsVistos.innerHTML = "";
+
+    pokemonesVistos.forEach(pokemonNombre => {
+        const li = document.createElement('li');
+        li.innerText = pokemonNombre;
+        ulPokemonsVistos.appendChild(li);
+    });
+}; */

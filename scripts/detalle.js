@@ -137,3 +137,13 @@ const fondosXtipos = {
     "water-psychic": "linear-gradient(to bottom right, rgba(57,142,226,255), rgba(229,74,127,255))",
     "ghost-poison": "linear-gradient(to bottom right, rgba(80,63,48,255), rgba(141,70,146,255))",
 };
+
+/* function almacenarPokemon(nombrePokemon){
+    let pokemonesVistos = JSON.parse(localStorage.getItem('pokemonesVistos')) || [];
+
+    if(!pokemonesVistos.includes(nombrePokemon)){
+        pokemonesVistos.push(nombrePokemon);
+    };
+
+    localStorage.setItem('pokemonesVistos', JSON.stringify(pokemonesVistos));
+} */

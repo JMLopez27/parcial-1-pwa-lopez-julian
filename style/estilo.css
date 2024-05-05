@@ -4,11 +4,17 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body{
+    background-image: url(../img/fondo-laboratorio.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 #contenedorPrincipal{
     margin: auto;
     max-width: 1366px;
-    border: 1px solid red;
-    background: gray;
+    background: rgba(245, 245, 245, 0)
 }
 
 header{
@@ -82,16 +88,6 @@ header{
 .card img{
     width: 190px;
     height: 190px;
-}
-
-.card button{
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-}
-
-.cardBoton{
-    text-align: center;
 }
 
 .tituloDetalle{
