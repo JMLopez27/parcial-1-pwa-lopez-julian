@@ -23,34 +23,31 @@ function crearCard(pokemonData) {
 
     const card = document.createElement('div');
     card.classList.add('card');
+    card.addEventListener('click', () => {
+        mostrarDetalle(pokemonData.id);
+    })
 
     const divH2 = document.createElement('div');
     divH2.classList.add('divCentrado')
     card.appendChild(divH2);
 
     const h2 = document.createElement('h2');
+    h2.classList.add('oculto');
     h2.innerText = pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
-    divH2.appendChild(h2);
+    card.appendChild(h2);
+
+    const h2Hover = document.createElement('h2');
+    h2Hover.innerText = pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
+    divH2.appendChild(h2Hover);
 
     const img = document.createElement('img');
-    img.src = pokemonData.sprites.other.dream_world.front_default;
+    img.src = pokemonData.sprites.front_default;
     img.alt = pokemonData.name;
     divH2.appendChild(img);
 
     const p = document.createElement('p');
     p.innerText = pokemonData.types.map(tipos => tipos.type.name.toUpperCase());
     divH2.appendChild(p);
-
-    const divBoton = document.createElement('div');
-    divBoton.classList.add('cardBoton');
-    card.appendChild(divBoton);
-
-    const boton = document.createElement('button');
-    boton.innerText = 'Detalle';
-    boton.addEventListener('click', () => {
-        mostrarDetalle(pokemonData.id);
-    })
-    divBoton.appendChild(boton);
 
     contenedor.appendChild(card);
 }
