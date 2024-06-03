@@ -1,4 +1,6 @@
-const pokemonID = +window.location.href.split('?id=')[1];
+const params = new URLSearchParams(window.location.search);
+const pokemonID = params.get('id');
+const pokemonName = params.get('name');
 
 const URL_endpoint = 'https://pokeapi.co/api/v2/';
 const URL_pokemon = URL_endpoint + 'pokemon/' + pokemonID;
@@ -6,7 +8,8 @@ const URL_pokemon = URL_endpoint + 'pokemon/' + pokemonID;
 fetch(URL_pokemon)
     .then(data => data.json())
     .then(resultado => {
-        crearCartaDetalle(resultado)
+        crearCartaDetalle(resultado);
+        document.title = "Detalle: " + pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
     })
 
 function crearCartaDetalle(pokemonDatos) {

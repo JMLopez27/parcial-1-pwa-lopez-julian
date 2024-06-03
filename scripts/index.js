@@ -24,7 +24,7 @@ function crearCard(pokemonData) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.addEventListener('click', () => {
-        mostrarDetalle(pokemonData.id);
+        mostrarDetalle(pokemonData.id, pokemonData.name);
     })
 
     const divH2 = document.createElement('div');
@@ -52,8 +52,8 @@ function crearCard(pokemonData) {
     contenedor.appendChild(card);
 }
 
-function mostrarDetalle(pokemonId) {
-    window.location.href = `http://127.0.0.1:5500/detalle.html?id=${pokemonId}`;
+function mostrarDetalle(pokemonId, pokemonName) {
+    window.location.href = `http://127.0.0.1:5500/detalle.html?id=${pokemonId}&name=${pokemonName}`;
 }
 
 const buscador = document.getElementById("buscador")
