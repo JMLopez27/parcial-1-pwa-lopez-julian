@@ -53,7 +53,7 @@ function crearCard(pokemonData) {
 }
 
 function mostrarDetalle(pokemonId, pokemonName) {
-    window.location.href = `http://127.0.0.1:5500/detalle.html?id=${pokemonId}&name=${pokemonName}`;
+    window.location.href = `detalle.html?id=${pokemonId}&name=${pokemonName}`;
 }
 
 const buscador = document.getElementById("buscador")
